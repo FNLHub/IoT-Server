@@ -1,20 +1,15 @@
 {
-  "name": "audio-manip",
+  "name": "iot",
   "version": "1.0.0",
-  "description": "Using linear algebra and differential equations to visualise transformations and deformations of sinusoidal functions",
+  "description": "Connecting the internet with the devices of tomorrow!",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "audio",
-    "linear",
-    "algebra",
-    "differential",
-    "equations",
-    "sinusoidal"
+    "iot"
   ],
-  "author": "Eric Marquez",
+  "author": "FNL Group",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
