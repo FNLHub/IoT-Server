@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.setHeader('test', 'test');
 
 app.get('/AHub', (req, res) => {
-    res.setHeader('Auth', 'test')
+    res.setHeader('Auth', 'test');
     if (req.body.SecretKey == 284923401){
         const result = {
             data: fanData
