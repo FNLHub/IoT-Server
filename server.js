@@ -8,7 +8,7 @@ app.use(bodyParser.json({ type: 'application/*+json' }))
 app.use(bodyParser.text({ type: 'text/html' }));
 app.use(bodyParser.json());
 
-app.post('/AHub', (req, res) => {
+app.get('/AHub', (req, res) => {
     if (req.body.SecretKey == 284923401){
         const result = {
             data: fanData
