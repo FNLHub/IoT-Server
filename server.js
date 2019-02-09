@@ -7,10 +7,9 @@ app.use(express.static(__dirname + '/views'));
 app.use(bodyParser.json({ type: 'application/*+json' }))
 app.use(bodyParser.text({ type: 'text/html' }));
 app.use(bodyParser.json());
-app.setHeader('test', 'test');
 
 app.get('/AHub', (req, res) => {
-    res.setHeader('Auth', 'test');
+    res.setHeader('test', 'test');
     if (req.body.SecretKey == 284923401){
         const result = {
             data: fanData
