@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+var fanData = 'DOT';
 
 app.use(express.static(__dirname + '/views'));
 app.use(bodyParser.json({ type: 'application/*+json' }))
@@ -9,11 +10,22 @@ app.use(bodyParser.json());
 
 app.post('/AHub', (req, res) => {
     if (req.body.SecretKey == 284923401){
-        res.send('!Hello from the server');
+        const result = {
+            data: fanData;
+        }
+        res.send(fanData);
     }
     else{
         res.send('Access denied');
     }
+});
+
+app.post('/', (req, res) => {
+    res.send('Is your name WiFi? Cause I\'m feeling a connection. ;)');
+});
+
+app.post('/Update', (req, res) => {
+    fanData = req.body.data;
 });
 
 // PORT
