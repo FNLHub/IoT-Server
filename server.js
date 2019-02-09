@@ -9,7 +9,7 @@ app.use(bodyParser.text({ type: 'text/html' }));
 app.use(bodyParser.json());
 
 app.get('/AHub', (req, res) => {
-    const result = 'Access Denied';
+    var result = 'Access Denied';
 
     if (req.body.SecretKey == 284923401){
         result = fanData;
@@ -19,12 +19,13 @@ app.get('/AHub', (req, res) => {
     res.send(result);
 });
 
-app.post('/', (req, res) => {
+app.get('/Ping', (req, res) => {
     res.send('Is your name WiFi? Cause I\'m feeling a connection. ;)');
 });
 
 app.post('/Update', (req, res) => {
     fanData = req.body.data;
+    res.send('Updated local data');
 });
 
 // PORT
