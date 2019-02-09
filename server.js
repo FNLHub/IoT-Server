@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.post('/AHub', (req, res) => {
     if (req.body.SecretKey == 284923401){
         const result = {
-            data: fanData;
+            data: fanData
         }
         res.send(fanData);
     }
