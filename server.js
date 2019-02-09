@@ -9,16 +9,14 @@ app.use(bodyParser.text({ type: 'text/html' }));
 app.use(bodyParser.json());
 
 app.get('/AHub', (req, res) => {
-    res.setHeader('test', 'test');
+    const result = 'Access Denied';
+
     if (req.body.SecretKey == 284923401){
-        const result = {
-            data: fanData
-        }
-        res.send(fanData);
+        result = fanData;
     }
-    else{
-        res.send('Access denied');
-    }
+
+    res.setHeader('test', 'test');
+    res.send(result);
 });
 
 app.post('/', (req, res) => {
