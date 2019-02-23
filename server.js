@@ -1,22 +1,26 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-var fanData = 'DOT';
+var polled = 0;
 
 app.use(express.static(__dirname + '/views'));
 app.use(bodyParser.json({ type: 'application/*+json' }))
 app.use(bodyParser.text({ type: 'text/html' }));
 app.use(bodyParser.json());
 
-app.get('/AHub', (req, res) => {
+app.get('/AHub/Login', (req, res) => {
     var result = 'Access Denied';
 
     if (req.body.SecretKey == 284923401){
         result = fanData;
     }
 
-    res.setHeader('test', 'test');
-    res.send(result);
+    // should be a key that the server generates to establish a secure connection
+    res.send('1234');
+});
+
+app.get('/AHub/FSpeed', (req,res) => {
+    res.send(polled);
 });
 
 app.get('/Ping', (req, res) => {
