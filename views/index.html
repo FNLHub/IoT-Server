@@ -46,7 +46,37 @@
       background: #4CAF50;
       cursor: pointer;
     }
+
+    #custom-handle {
+      width: 3em;
+      height: 1.6em;
+      top: 50%;
+      margin-top: -.8em;
+      text-align: center;
+      line-height: 1.6em;
+    }
   </style>
+
+  <script>
+    $(function () {
+      var handle = $("#custom-handle");
+      $("#slider").slider({
+        create: function () {
+          handle.text($(this).slider("value"));
+        },
+        slide: function (event, ui) {
+          handle.text(ui.value);
+        },
+        change: function (event, data) {
+          console.log('Hello World');
+          $.post('http://cos-ar.herokuapp.com/Update', { value: data.value }).then(function (res) {
+            console.log('Server: ' + res + '- Expected value: ' + output.value);
+          });
+        }
+      });
+    });
+  </script>
+
 </head>
 
 <body>
@@ -55,32 +85,10 @@
   <p>User inputs data using slider and displays what value the user is on</p>
   <h1>Fan Speed</h1>
 
-  <div class="slidecontainer">
-    <input class="slider" id="sliders" type="range">
-    <p>Value <span id="slider-value"></span></p>
+  <div id="slider">
+    <div id="custom-handle" class="ui-slider-handle"></div>
   </div>
 
-  <script>
-    $("#sliders").slider({
-      value: 50,
-      min: 1,
-      max: 100,
-      step: 1,
-      slide: function (event, ui) {
-        console.log('value changed');
-        $("#slider-value").html(ui.value);
-      },
-      change: function (event, data) {
-        console.log('Hello World');
-        $.post('http://cos-ar.herokuapp.com/Update', { value: data.value }).then(function (res) {
-          console.log('Server: ' + res + '- Expected value: ' + output.value);
-        });
-      }
-    });
-
-    $("#slider-value").html($('#sliders').slider('value'));
-
-  </script>
 </body>
 
 </html>
