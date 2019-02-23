@@ -70,6 +70,8 @@
     var slider = document.getElementById("range");
     var output = document.getElementById("userInput");
     output.innerHTML = slider.value;
+
+    console.log('Output: ' + output);
     
     slider.oninput = function() {
       output.innerHTML = this.value;
