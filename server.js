@@ -23,6 +23,7 @@ app.get('/Ping', (req, res) => {
 
 app.post('/Update', (req, res) => {
     fanData = req.body.value;
+    console.log(req.body);
     res.send('Updated local data: ' + fanData);
 });
 

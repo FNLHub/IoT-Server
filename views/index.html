@@ -8,8 +8,10 @@
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
   <style>
-    /* .slidecontainer {
+    .slidecontainer {
       width: 100%;
     }
 
@@ -45,7 +47,7 @@
       border-radius: 50%;
       background: #4CAF50;
       cursor: pointer;
-    } */
+    }
 
     #custom-handle {
       width: 3em;
@@ -68,8 +70,7 @@
           handle.text(ui.value);
         },
         change: function (event, data) {
-          console.log('Hello World');
-          $.post('http://cos-ar.herokuapp.com/Update', { value: data.value }).then(function (res) {
+          $.post('/Update', { value: data.value }).then(function (res) {
             console.log('Server: ' + res + '- Expected value: ' + data.value);
           });
         }
