@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-var polled = 0;
+var fanData = 0;
 
 app.use(express.static(__dirname + '/views'));
 app.use(bodyParser.json({ type: 'application/*+json' }))
@@ -14,7 +14,7 @@ app.get('/Login', (req, res) => {
 });
 
 app.get('/FanSpeed', (req,res) => {
-    res.send('' + polled);
+    res.send('' + fanData);
 });
 
 app.get('/Ping', (req, res) => {
@@ -22,8 +22,8 @@ app.get('/Ping', (req, res) => {
 });
 
 app.post('/Update', (req, res) => {
-    fanData = req.body.data;
-    res.send('Updated local data');
+    fanData = req.body.value;
+    res.send('Updated local data: ' + fanData);
 });
 
 // PORT
