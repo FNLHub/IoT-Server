@@ -67,9 +67,11 @@
       max: 100,
       step: 1,
       slide: function (event, ui) {
+        console.log('value changed');
         $("#slider-value").html(ui.value);
       },
       change: function (event, data) {
+        console.log('Hello World');
         $.post('http://cos-ar.herokuapp.com/Update', { value: data.value }).then(function (res) {
           console.log('Server: ' + res + '- Expected value: ' + output.value);
         });
