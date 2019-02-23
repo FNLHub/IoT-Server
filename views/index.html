@@ -56,12 +56,12 @@
   <h1>Fan Speed</h1>
 
   <div class="slidecontainer">
-    <input class="slider" id="slider" type="range">
+    <input class="slider" id="sliders" type="range">
     <p>Value <span id="slider-value"></span></p>
   </div>
 
   <script>
-    $("#slider").slider({
+    $("#sliders").slider({
       value: 50,
       min: 1,
       max: 100,
@@ -78,7 +78,7 @@
       }
     });
 
-    $("#slider-value").html($('#slider').slider('value'));
+    $("#slider-value").html($('#sliders').slider('value'));
 
   </script>
 </body>
