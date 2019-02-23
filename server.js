@@ -8,7 +8,7 @@ app.use(bodyParser.json({ type: 'application/*+json' }))
 app.use(bodyParser.text({ type: 'text/html' }));
 app.use(bodyParser.json());
 
-app.get('/AHub/Login', (req, res) => {
+app.get('/Login', (req, res) => {
     var result = 'Access Denied';
 
     if (req.body.SecretKey == 284923401){
@@ -19,7 +19,7 @@ app.get('/AHub/Login', (req, res) => {
     res.send('1234');
 });
 
-app.get('/AHub/FSpeed', (req,res) => {
+app.get('/FanSpeed', (req,res) => {
     res.send(polled);
 });
 
