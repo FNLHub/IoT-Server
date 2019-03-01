@@ -22,21 +22,9 @@ app.get('/Ping', (req, res) => {
     res.send('Is your name WiFi? Cause I\'m feeling a connection. ;)');
 });
 
-app.post('/Update2', function(req, res){
-	var obj = {};
-	console.log('body: ' + JSON.stringify(req.body));
-	res.send(req.body);
-});
-
-app.post('/Update3', (req, res) => {
-    let fanData = req.body.fanData;
-    //let inputContent = req.body.textField;
-	console.log(fanData);
-});
-
 app.post('/Update', (req, res) => {
     fanData = req.body.fanData;
-    console.log('req: ' + req.body);
+    console.log('req: ' + JSON.stringify(req.body));
     res.send('Updated local data: ' + fanData);
 });
 
