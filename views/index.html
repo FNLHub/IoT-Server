@@ -62,7 +62,8 @@
   <script>
     $(function () {
       var handle = $("#custom-handle");
-
+      var myInput = document.getElementById("auth");
+      
       $('#slider').slider().bind({
         slidestart: function (event, ui) { console.log('start: ' + ui.value) },
         slidechange: function (event, ui) { console.log('change: ' + ui.value) },
@@ -73,7 +74,8 @@
           console.log('stop: ' + ui.value);
 
           var data = {
-            fanData: ui.value
+            fanData: ui.value,
+            auth: myInput.value,
           };
 
           console.log("FanData: " + data.fanData);
@@ -119,7 +121,11 @@
 
   <h1>Fan speed control 0.1 (alpha)</h1>
   <p>User inputs data using slider and displays what value the user is on</p>
-  <h1>Fan Speed</h1>
+  <h2>Enter Password</h2>
+  <div>
+    <input type = "password" id = auth>
+  </div>
+  <h3>Fan Speed</h3>
   <form id="formId">
     <div id="slider">
       <div id="custom-handle" class="ui-slider-handle"></div>
